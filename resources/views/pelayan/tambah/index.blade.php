@@ -1,0 +1,41 @@
+@extends('layouts.layout')
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4 style="text-align:center;font-weight: bolder" class="title">{{$title}}</h4>
+                    <p class="category"></p></div>
+                <div class="panel-body">
+                <div class="col-md-12">
+                <div class="card">                
+                <div class="content table-responsive table-full-width">
+                <form action="{{url('/pelayan/store')}}" method="post" enctype="multipart/form-data"> 
+                {{ csrf_field() }}                   
+                <label class="col-md-4 control-label">Nama Menu</label>
+                <input type="text" class="form-control" name="product_name" required>
+                <label class="col-md-4 control-label">Jenis Menu</label>
+                <input type="text" class="form-control" name="product_type" required>
+                <label class="col-md-4 control-label">Harga</label>    
+                <input type="number" class="form-control" name="price" required>            
+                <label class="col-md-4 control-label">Deskripsi</label>    
+                <textarea class="form-control" placeholder="Berikan deskripsi disini" rows="3" name="deskripsi" required>   
+                </textarea>                
+                <label class="col-md-4 control-label">Status</label>                    
+                <select class="form-control" name="status" required>
+                <option value="Tersedia">Tersedia</option>
+                <option value="Tidak Tersedia">Tidak Tersedia</option>                
+                </select>
+				<label class="col-md-4 control-label">Masukkan Gambar</label>
+				<input type="file" class="form-control" name="image" required/>          				                    
+                <input type="submit" value="Tambah Menu" class="btn btn-danger">
+                </form>
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                
+@endsection
